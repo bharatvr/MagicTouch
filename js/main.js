@@ -117,14 +117,10 @@
   }
 
   async function listWorkImages(folder) {
-    const res = await fetch(folder);
-    if (!res.ok) throw new Error('Directory listing not available for ' + folder);
-    const html = await res.text();
-    const doc = new DOMParser().parseFromString(html, 'text/html');
-    return Array.from(doc.querySelectorAll('a'))
-      .map(function (a) { return decodeURIComponent(a.getAttribute('href') || ''); })
-      .filter(function (href) { return /\.(jpe?g|png|webp|gif)$/i.test(href) && href.indexOf('/') === -1; })
-      .sort(naturalCompare);
+    const res = await fetch(folder + 'manifest.json');
+    if (!res.ok) throw new Error('Could not load image manifest for ' + folder);
+    const files = await res.json();
+    return files.slice().sort(naturalCompare);
   }
 
   const GALLERY_PAGE_SIZE = 8;
