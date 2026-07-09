@@ -431,13 +431,6 @@ section { padding: 4.5rem 0; scroll-margin-top: 72px; }
   gap: 1rem;
 }
 
-@media (max-width: 900px) {
-  .gallery-grid { grid-template-columns: repeat(2, 1fr); }
-}
-@media (max-width: 520px) {
-  .gallery-grid { grid-template-columns: 1fr; }
-}
-
 .gallery-nav {
   flex-shrink: 0;
   width: 44px;
@@ -456,6 +449,17 @@ section { padding: 4.5rem 0; scroll-margin-top: 72px; }
 }
 .gallery-nav:hover,
 .gallery-nav:focus-visible { background: var(--color-primary-dark); }
+
+@media (max-width: 900px) {
+  .gallery-grid { gap: 0.6rem; }
+  .gallery-grid-wrap { gap: 0.4rem; }
+  .gallery-nav { width: 34px; height: 34px; font-size: 1.15rem; }
+}
+@media (max-width: 560px) {
+  .gallery-grid { gap: 0.35rem; }
+  .gallery-nav { display: none; }
+  .gallery-item::after { content: "Magic Touch"; font-size: 0.44rem; right: 0.3rem; bottom: 0.22rem; letter-spacing: 0.02em; }
+}
 
 .gallery-dots {
   display: flex;
