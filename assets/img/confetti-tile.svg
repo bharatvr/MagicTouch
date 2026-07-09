@@ -1,0 +1,32 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="200" height="200" viewBox="0 0 200 200">
+  <g fill="#e0b400" opacity="0.85">
+    <circle cx="20" cy="26" r="4.5"/>
+    <circle cx="150" cy="64" r="4"/>
+    <circle cx="100" cy="165" r="5"/>
+  </g>
+  <g fill="#d84f6a" opacity="0.85">
+    <circle cx="65" cy="14" r="3.5"/>
+    <circle cx="175" cy="140" r="4.5"/>
+    <circle cx="32" cy="120" r="4"/>
+  </g>
+  <g fill="#3f9b8f" opacity="0.8">
+    <rect x="120" y="22" width="8" height="8" rx="2" transform="rotate(20 124 26)"/>
+    <rect x="12" y="160" width="7" height="7" rx="2" transform="rotate(-15 15 163)"/>
+    <circle cx="150" cy="180" r="3.5"/>
+  </g>
+  <g fill="#7a5cc0" opacity="0.8">
+    <circle cx="185" cy="30" r="3.5"/>
+    <rect x="60" y="95" width="7" height="7" rx="2" transform="rotate(35 63 98)"/>
+  </g>
+  <g fill="none" stroke="#e0743c" stroke-width="3" stroke-linecap="round" opacity="0.75">
+    <path d="M160 18 q7 9 0 18"/>
+    <path d="M50 145 q-7 9 0 18"/>
+    <path d="M10 70 q9 7 0 14"/>
+  </g>
+  <g fill="#d84f6a" opacity="0.85">
+    <path d="M90 55 l3.2 6.4 7-1 -5 4.9 1.2 7-6.4-3.3-6.4 3.3 1.2-7-5-4.9 7 1z"/>
+  </g>
+  <g fill="#3f9b8f" opacity="0.75">
+    <path d="M140 105 l2.6 5.2 5.7-0.8-4.1 4 1 5.7-5.2-2.7-5.2 2.7 1-5.7-4.1-4 5.7 0.8z"/>
+  </g>
+</svg>
