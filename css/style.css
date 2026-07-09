@@ -134,6 +134,26 @@ h1, h2, h3 { font-family: var(--font-heading); line-height: 1.25; }
   color: var(--color-primary-dark);
 }
 .logo span { color: var(--color-accent); }
+.logo-group {
+  display: flex;
+  align-items: baseline;
+  gap: 0.65rem;
+  text-decoration: none;
+}
+.logo-tagline {
+  display: none;
+  text-transform: uppercase;
+  letter-spacing: 0.1em;
+  font-size: 0.72rem;
+  font-weight: 600;
+  color: var(--color-text-muted);
+  padding-left: 0.65rem;
+  border-left: 1px solid var(--color-border);
+  white-space: nowrap;
+}
+@media (min-width: 640px) {
+  .logo-tagline { display: inline; }
+}
 
 .nav-toggle {
   display: flex;
@@ -665,7 +685,7 @@ section { padding: 4.5rem 0; scroll-margin-top: 72px; }
 /* ===== Footer ===== */
 .site-footer {
   position: relative;
-  background: #7b2d42;
+  background: #9c4a70;
   color: #f8ece0;
   padding: 1.25rem 0 0.85rem;
   font-size: 0.88rem;
