@@ -168,6 +168,11 @@
       }
     }
 
+    function goToPage(page) {
+      currentPage = (page + pageCount) % pageCount;
+      renderPage();
+    }
+
     if (pageCount <= 1) {
       if (prevBtn) prevBtn.style.display = 'none';
       if (nextBtn) nextBtn.style.display = 'none';
@@ -179,25 +184,33 @@
           .map(function (_, i) { return '<button aria-label="Go to image set ' + (i + 1) + '"></button>'; })
           .join('');
         Array.from(dotsWrap.children).forEach(function (dot, i) {
-          dot.addEventListener('click', function () {
-            currentPage = i;
-            renderPage();
-          });
+          dot.addEventListener('click', function () { goToPage(i); });
         });
       }
 
       if (prevBtn) {
-        prevBtn.addEventListener('click', function () {
-          currentPage = (currentPage - 1 + pageCount) % pageCount;
-          renderPage();
-        });
+        prevBtn.addEventListener('click', function () { goToPage(currentPage - 1); });
       }
       if (nextBtn) {
-        nextBtn.addEventListener('click', function () {
-          currentPage = (currentPage + 1) % pageCount;
-          renderPage();
-        });
+        nextBtn.addEventListener('click', function () { goToPage(currentPage + 1); });
       }
+
+      // Swipe left/right to change page (touch devices, e.g. mobile where the arrows are hidden)
+      let touchStartX = 0;
+      let touchStartY = 0;
+      grid.addEventListener('touchstart', function (e) {
+        const t = e.changedTouches[0];
+        touchStartX = t.clientX;
+        touchStartY = t.clientY;
+      }, { passive: true });
+      grid.addEventListener('touchend', function (e) {
+        const t = e.changedTouches[0];
+        const dx = t.clientX - touchStartX;
+        const dy = t.clientY - touchStartY;
+        if (Math.abs(dx) > 40 && Math.abs(dx) > Math.abs(dy)) {
+          goToPage(currentPage + (dx < 0 ? 1 : -1));
+        }
+      }, { passive: true });
     }
 
     renderPage();
